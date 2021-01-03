@@ -16,5 +16,5 @@ use App\Http\Controllers\FlightController;
 */
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::get('flight', [FlightController::class,'index']);
+    Route::get('flights', [FlightController::class,'index']);
 });

@@ -16,7 +16,7 @@ class Flight123MilhasApiTest extends TestCase
     public function check_flight_123Milhas_api_request()
     {
 
-        $response = $this->get('/api/v1/flight');
+        $response = $this->get('/api/v1/flights');
         $response->assertStatus(200);
     }
 }
