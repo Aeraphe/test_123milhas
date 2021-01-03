@@ -15,8 +15,9 @@ class FlightController extends Controller
 
         $flights = $flightHttpService->getFlights();
         $flightsArrenge = $this->arrangeFlightsByTypeFareAndPrice($flights);
+        $flightGroups = $this->makeFlightsGroups($flightsArrenge);
+        $flightGroups->flights = $flights;
 
-
-
+        return json_encode($flightGroups,JSON_PRETTY_PRINT);
     }
 }

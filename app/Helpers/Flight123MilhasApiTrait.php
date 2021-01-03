@@ -38,4 +38,67 @@ trait Flight123MilhasApiTrait
 
         return array("departure" => $departure, "arraive" => $arraive);
     }
+
+
+    private function makeFlightsGroups($flightsData)
+    {
+
+        $groups = [];
+        $totalGroups = 0;
+        $totalUniqueFlights = 0;
+        $cheapestPrice = null;
+        $cheapestGroupId = null;
+
+
+        foreach ($flightsData['departure'] as $key => $departure) {
+            foreach ($flightsData['arraive'] as $key2 => $arrive) {
+                if ($departure[0]->fare == $arrive[0]->fare) {
+
+                    $totalGroups += 1;
+                    $flight_group_price = $key + $key2;
+                    if ($cheapestPrice === null) {
+                        $cheapestPrice = $flight_group_price;
+                        $cheapestGroupId = $totalGroups;
+                    } elseif ($flight_group_price <= $cheapestPrice) {
+                        $cheapestPrice = $flight_group_price;
+                        $cheapestGroupId = $totalGroups;
+                    }
+                    //Count if departure or arive in group has just a unique flight
+                    if (count($departure) == 1)  $totalUniqueFlights += 1;
+                    if (count($arrive) == 1) $totalUniqueFlights += 1;
+
+                    array_push($groups, (object) array(
+                        "uniqueid" => $totalGroups,
+                        "totalPrice" => $flight_group_price,
+                        "outbound" => $departure,
+                        "inbound" => $arrive
+                    ));
+                };
+            }
+        }
+
+
+        for ($i = 0; $i < sizeof($groups); $i++) {
+            for ($j = $i + 1; $j < sizeof($groups); $j++) {
+                if ($groups[$i]->totalPrice > $groups[$j]->totalPrice) {
+                    $temp = $groups[$i];
+                    $groups[$i] = $groups[$j];
+                    $groups[$j] = $temp;
+                }
+            }
+        }
+
+
+        return (object) array(
+            "flights" => null,
+            "groups" => $groups,
+            "totalGroups" => $totalGroups,
+            "totalFlights" => $totalUniqueFlights, //Is not Clear on Documatation
+            "cheapestPrice" => $cheapestPrice,
+            "chepestGroup" => $cheapestGroupId
+        );
+    }
+
+
+
 }
