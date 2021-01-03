@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  backend:
+    container_name: milhas-api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - 80:80
+    volumes:
+      - ~/Apps/milhas:/app
