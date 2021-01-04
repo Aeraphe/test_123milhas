@@ -81,7 +81,7 @@ echo "${RED}###########################################################${NC}"
 echo "                    ${GREEN}CACHE CHANGES${NC}                        "
 echo "${RED}###########################################################${NC}"
 
-docker-compose exec app php artisan config:cache
+sudo docker-compose exec app php artisan config:cache
 
 sleep 1.0
 
