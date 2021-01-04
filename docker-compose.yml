@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   backend:
+    tty: true
     container_name: milhas-api
     build:
       context: .
@@ -8,5 +9,12 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ~/Apps/milhas:/app
-    
+      - api-data:/app
+
+volumes:
+ api-data:
+   driver: local
+   driver_opts:
+     o: bind
+     type: none
+     device: ./milhas

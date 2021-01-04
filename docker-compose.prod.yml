@@ -1,11 +1,20 @@
-version: '3.3'
+version: '3.7'
 services:
   backend:
+    tty: true
     container_name: milhas-api
     build:
       context: .
-      dockerfile: Dockerfile.api
+      dockerfile: Dockerfile.prod
     ports:
       - 80:80
     volumes:
-      - ~/Apps/milhas:/app
+      - api-data:/app
+
+volumes:
+ api-data:
+   driver: local
+   driver_opts:
+     o: bind
+     type: none
+     device: ./test_123milhas
