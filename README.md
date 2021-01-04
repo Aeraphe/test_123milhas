@@ -16,14 +16,12 @@ The deploy in AWS use a shell script (deploy.sh)
  ## API Routes 
 
   -  For local machine:
-
-   - Get Flights By Groupe: http://localhost/api/v1/flights
+    - Get Flights By Groupe: http://localhost/api/v1/flights
    
   -  AWS host route adress:
-  
-   - Get Flights By Groupe: http://3.17.16.92/api/v1/flights
+    - Get Flights By Groupe: http://3.17.16.92/api/v1/flights
 
-  Get Routes Colletion on Postman : [https://www.getpostman.com/collections/5db2a0026dc96f440c78] (https://www.getpostman.com/collections/5db2a0026dc96f440c78)
+ ^ Get Routes Colletion on Postman : [https://www.getpostman.com/collections/5db2a0026dc96f440c78] (https://www.getpostman.com/collections/5db2a0026dc96f440c78)
 
 ## Instalation
 
