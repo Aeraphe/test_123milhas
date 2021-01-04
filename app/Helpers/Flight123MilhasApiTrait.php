@@ -6,7 +6,11 @@ namespace App\Helpers;
 trait Flight123MilhasApiTrait
 {
 
-
+    /**
+     * This method recive all flights (outbound,inbound) from 123Milhas Api
+     * then separate the data by outbound, inbound by price and fare
+     * @return array
+     */
     private function arrangeFlightsByTypeFareAndPrice($flights)
     {
         $auxFlightsData = $flights;
@@ -18,11 +22,13 @@ trait Flight123MilhasApiTrait
             $arraive_temp = [];
             $flights_filters_keys = [];
             foreach ($flights as $key => $flight) {
+                //Filter outbound flights
                 if ($flight->outbound == 1 && $value->fare == $flight->fare &&  $value->price == $flight->price) {
                     array_push($departure_temp, $flight);
                     $departure[$value->price] = $departure_temp;
                     array_push($flights_filters_keys, $key);
                 }
+                 //Filter inbound flights
                 if ($flight->outbound == 0 && $value->fare == $flight->fare &&  $value->price == $flight->price) {
                     array_push($arraive_temp, $flight);
                     $arraive[$value->price] = $arraive_temp;
@@ -39,7 +45,12 @@ trait Flight123MilhasApiTrait
         return array("departure" => $departure, "arraive" => $arraive);
     }
 
-
+ /**
+     * This method combine outbound and inbound flights
+     * in groups by fare and organize then in descending price
+     *
+     * @return array Arrenged groups by price in descending order
+     */
     private function makeFlightsGroups($flightsData)
     {
 
@@ -77,7 +88,7 @@ trait Flight123MilhasApiTrait
             }
         }
 
-
+        //Organize the groups by price in descending order
         for ($i = 0; $i < sizeof($groups); $i++) {
             for ($j = $i + 1; $j < sizeof($groups); $j++) {
                 if ($groups[$i]->totalPrice > $groups[$j]->totalPrice) {
