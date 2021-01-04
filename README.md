@@ -21,7 +21,8 @@ The deploy in AWS use a shell script (deploy.sh)
   -  AWS host route adress:
     - Get Flights By Groupe: http://3.17.16.92/api/v1/flights
 
- ^ Get Routes Colletion on Postman : [https://www.getpostman.com/collections/5db2a0026dc96f440c78] (https://www.getpostman.com/collections/5db2a0026dc96f440c78)
+  Get Routes Colletion on Postman  [Collection](https://www.getpostman.com/collections/5db2a0026dc96f440c78/)
+  - https://www.getpostman.com/collections/5db2a0026dc96f440c78
 
 ## Instalation
 
