@@ -28,12 +28,12 @@ The deploy in AWS use a shell script (deploy.sh)
 
  ### Manual instalation
  - This app uses Docker and Docker Compose  for run the larevel in container  
-   if you dont know how to install click here [DockerInstall] (https://docs.docker.com/engine/install/)
+   if you dont know how to install click here [DockerInstall](https://docs.docker.com/engine/install/)
 
- - After install docker you have to install Docker Compose see [Instrutions] (https://docs.docker.com/compose/install/) 
+ - After install docker you have to install Docker Compose see [Instrutions](https://docs.docker.com/compose/install/) 
 
  - Download or Clone the App source code form git: https://github.com/Aeraphe/test_123milhas.git 
-   see git acount for more [details] (https://github.com/Aeraphe/test_123milhas)
+   see git acount for more [details](https://github.com/Aeraphe/test_123milhas/)
 
  - Now open the bash in the app source folder and type: 
    ```
