@@ -5,19 +5,21 @@
 Test for 123Milhas
 
 
-## This is an Api Test with Laravel for request flights from 123Milhas, arrenge and group thens by:
+### This is an Api Test (host in AWS EC2)  with Laravel, Docker for request flights from 123Milhas, arrenge and group thens by:
+
    - Price
    - Inbound
    - Outbound
    - Fare
   
+The deploy in AWS use a shell script (deploy.sh)
  ## API Routes 
 
   -  For local machine:
 
    - Get Flights By Groupe: http://localhost/api/v1/flights
    
-  -  For online:
+  -  AWS host route adress:
   
    - Get Flights By Groupe: http://3.17.16.92/api/v1/flights
 
@@ -34,13 +36,22 @@ Test for 123Milhas
  - Download or Clone the App source code form git: https://github.com/Aeraphe/test_123milhas.git 
    see git acount for more [details] (https://github.com/Aeraphe/test_123milhas)
 
- - Now open the bash in the app source folder and type: sudo docker-compose -f docker-compose.prod.yml up
-
- - Then install compose dependecies with command: sudo docker-compose exec app  composer install
-
- - Create environment file with command: sudo touch .env 
+ - Now open the bash in the app source folder and type: 
+   ```
+   sudo docker-compose -f docker-compose.prod.yml up
+   ```
+ - Then install compose dependecies with command: 
+  ```
+    sudo docker-compose exec app  composer install
+  ```
+ - Create and copy environment file with command: 
  
- - Copy the default .env.example to .env
+   ```
+    sudo touch .env 
+    sudo cp .env.example .env
+    sudo chmod -R 777 .env
+   ```
+
 
  - Create laravel Key by : 
     ```
