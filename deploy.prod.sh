@@ -39,11 +39,7 @@ echo "${RED}###########################################################${NC}"
 
 sudo git clone https://github.com/Aeraphe/test_123milhas.git
 
-sudo chmod -R 777 test_123milhas/
-
 cd test_123milhas
-
-
 
 echo "                        ${GREEN}CREATE .Env File${NC}                    "
 
